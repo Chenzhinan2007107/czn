@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>汽车动画</title>
+    <style>
+        /* 设置画布样式 */
+        #container {
+            width: 800px;
+            height: 500px;
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+        /* 汽车样式 */
+        #car {
+            width: 80px;
+            height: 40px;
+            background-color: #ff4444;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            border-radius: 10px 30px 10px 10px;
+            transition: all 3s linear;
+        }
+        /* 汽车轮子 */
+        #car::before, #car::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -10px;
+        }
+        #car::before {
+            left: 10px;
+        }
+        #car::after {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="car"></div>
+    </div>
+
+    <script>
+        // 获取汽车元素
+        const car = document.getElementById('car');
+        // 触发动画：汽车从左下角移动到右下角
+        setTimeout(() => {
+            car.style.left = '700px'; // 容器宽度800px，汽车宽度80px，所以目标位置是800-80-20=700px
+        }, 500);
+    </script>
+</body>
+</html>
